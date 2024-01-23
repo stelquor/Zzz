@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Board Detail</title>
+
+</head>
+<body>
+	
+	<div class="allBigBox">
+		
+		<h3>Board Detail</h3>
+		
+		<th:block th:if="${bDto}!=null">
+			
+			<p th:text=" ' &ensp;글번호' + ${bDto.b_num} + ' &ensp; '"></p>
+			<p th:text=" ' &ensp;제목 ' + ${bDto.b_title} + ' &ensp; '"></p>
+			<p th:text=" ' &ensp;작성자 ' + ${bDto.b_writer} + ' &ensp; '"></p>
+			<p th:text=" ' &ensp;작성날짜 ' + ${bDto.b_date} + ' &ensp; '"></p>
+			<p th:text=" ' &ensp;조회수 ' + ${bDto.b_view} + ' &ensp; '"></p>
+			<p th:text=" ' &ensp;내용 ' + ${bDto.b_contents} + ' &ensp; '"></p>
+			
+		</th:block>
+		
+		<button type="button" onclick="location.href='/'">메인화면</button>
+		<button type="button" onclick="location.href = document.referrer;">이전 페이지로 돌아가기</button>
+		
+	</div>
+	
+</body>
+</html>
