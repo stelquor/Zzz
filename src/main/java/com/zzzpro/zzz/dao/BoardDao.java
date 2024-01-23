@@ -16,4 +16,7 @@ public interface BoardDao {
 	public BoardDto boardDetail(int b_num);
 
 	public boolean writeSub(BoardDto bDto);
+
+	public String getNick(String b_writer);
+	
 }

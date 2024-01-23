@@ -23,12 +23,10 @@ public class MemberController {
 	
 	@GetMapping("/member/joinfrm")
 	public String joinfrm() {
-		log.info(" ========== > controller - joinfrm < ==========");
 		return "join";
 	}
 	@PostMapping("/member/join")
 	public String join(MemberDto mDto, RedirectAttributes ra) {
-		log.info(" ========== > controller - join < ==========");
 		boolean result = mSer.join(mDto, ra);
 		if(result) {
 			return "redirect:/member/loginfrm";
@@ -38,12 +36,10 @@ public class MemberController {
 	
 	@GetMapping("/member/loginfrm")
 	public String loginfrm() {
-		log.info(" ========== > controller - loginfrm < ==========");
 		return "login";
 	}
 	@PostMapping("/member/login")
 	public String login(MemberDto mDto, RedirectAttributes ra, HttpSession session) {
-		log.info(" ========== > controller - login < ==========");
 		boolean result = mSer.login(mDto, ra, session);
 		if(result) {
 			return "redirect:/";
@@ -53,7 +49,6 @@ public class MemberController {
 	
 	@GetMapping("/member/logout")
 	public String logout(HttpSession session) {
-		log.info(" ========== > controller - logout < ==========");
 		session.removeAttribute("loginId");
 		return "redirect:/";
 	}

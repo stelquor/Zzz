@@ -7,6 +7,23 @@
  */
 
 
+
+function anonymousChange(){
+	let nick = document.getElementById('nicknameBTN')
+	let anony = document.getElementById('anonymousBTN')
+	if(nick.className=='btn btn-primary'){
+		nick.className = 'btn btn-outline-primary';
+		anony.className = 'btn btn-primary';
+		$('#b_writerNick').css('display','block')
+	}else{
+		nick.className = 'btn btn-primary';
+		anony.className = 'btn btn-outline-primary';
+		$('#b_writerNick').css('display','none')
+	}
+}
+
+
+
 function writeCheck() {		// 게시글 올리기 전 체크
 	let title = $('#b_title').val()
 	var contents = $('#summernote').summernote('code')
@@ -36,6 +53,9 @@ function writeCheck() {		// 게시글 올리기 전 체크
 	return true
 }		// 게시글 올리기 전 체크 끝
 
+
+
+/* ====================== 썸머노트 설정 시작 ====================== */
 $(document).ready(function() {
 	$('#summernote').summernote({
 		lang : 'ko-KR' // default: 'en-US'
@@ -54,16 +74,4 @@ $('#summernote').summernote({
 			[ 'insert', [ 'link', 'picture', 'video' ] ],
 			[ 'view', [ 'fullscreen', 'codeview', 'help' ] ] ]
 });
-
-
-function anonymousChange(){
-	let nick = document.getElementById('nicknameBTN')
-	let anony = document.getElementById('anonymousBTN')
-	if(nick.className=='btn btn-primary'){
-		nick.className = 'btn btn-outline-primary';
-		anony.className = 'btn btn-primary';
-	}else{
-		nick.className = 'btn btn-primary';
-		anony.className = 'btn btn-outline-primary';
-	}
-}
+/* ====================== 썸머노트 설정 끝 ====================== */

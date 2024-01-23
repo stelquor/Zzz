@@ -36,7 +36,7 @@ public class BoardService {
 		System.out.println(bDto);
 		if(bDto.getB_date()!="") {
 			if(bDto.getUnnamed()==1) {
-				bDto.setB_writer("익명");
+				bDto.setB_writer(bDto.getB_writerNick());
 			}
 			model.addAttribute("bDto", bDto);
 			return true;
@@ -46,9 +46,14 @@ public class BoardService {
 
 	public boolean writeSub(BoardDto bDto, RedirectAttributes ra) {
 		log.info(" ========== > service - writeSub: "+bDto.getB_writer()+" < ==========");
-		if(bDto.getUnnamed()==0) {
-			MemberDao mDao = null;
-			bDto.setB_writerNick(mDao.getNick(bDto.getB_writer()));
+		System.out.println(bDto);
+		if(bDto.getB_writerNick()=="") {
+			System.out.println(bDto.getB_writer());
+			bDto.setB_writerNick(bDao.getNick(bDto.getB_writer()));
+			
+			System.out.println(bDto);
+		}else {
+			bDto.setUnnamed(1);
 		}
 		if(bDao.writeSub(bDto)) {
 			ra.addFlashAttribute("msg","게시글 작성에 성공했습니다.");
