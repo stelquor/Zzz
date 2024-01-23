@@ -40,8 +40,8 @@ public class BoardController {
 	}
 	
 	@GetMapping("/board/writeSub")
-	public String writeSub(BoardDto bDto, RedirectAttributes ra) {
-		log.info(" ========== > controller - writeSub < ==========");
+	public String writeSub(BoardDto bDto, RedirectAttributes ra) {	
+		log.info(" ========== > controller - writeSub < =========={}",bDto);
 		bSer.writeSub(bDto, ra);
 		return "redirect:/board/list?page=1";
 	}

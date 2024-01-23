@@ -6,7 +6,7 @@
 	
 	<!-- Test용 더미 데이터 -->
 	<insert id="insertDummyData">
-		insert board into(b_title,b_contents,b_writer,b_writerNick,unnamed) values(#{b_title},#{b_contents},#{b_writer},#{b_writerNick},#{unnamed})
+		insert into board(b_title,b_contents,b_writer,b_writerNick,unnamed) values(#{b_title},#{b_contents},#{b_writer},#{b_writerNick},#{unnamed})
 	</insert>
 	
 	<select id="boardList">
@@ -19,7 +19,12 @@
 	</select>
 	
 	<insert id="writeSub">
-		insert board into(b_title,b_contents,b_writer,b_writerNick,unnamed) values(#{b_title},#{b_contents},#{b_writer},#{b_writerNick},#{unnamed})
+		insert into board(b_title,b_contents,b_writer,b_writerNick,b_pw,unnamed) 
+		values(#{b_title},#{b_contents},#{b_writer},#{b_writerNick},#{b_pw},#{unnamed});
 	</insert>
+		
+	<select id="getNick">
+		select m_nick from member where m_id=#{b_writer}
+	</select>
 	
 </mapper>

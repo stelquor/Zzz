@@ -23,9 +23,5 @@
 		select m_pw from member where m_id=#{m_id}
 	</select>
 	
-	<select id="getNick">
-		select m_nick from member where m_id=#{b_writer}
-	</select>
-	
 	
 </mapper>
