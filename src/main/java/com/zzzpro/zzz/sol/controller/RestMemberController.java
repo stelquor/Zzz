@@ -1,10 +1,10 @@
-package com.zzzpro.zzz.controller;
+package com.zzzpro.zzz.sol.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.zzzpro.zzz.service.MemberService;
+import com.zzzpro.zzz.sol.service.MemberService;
 
 import lombok.extern.slf4j.Slf4j;
 

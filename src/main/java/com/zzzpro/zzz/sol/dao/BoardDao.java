@@ -1,10 +1,10 @@
-package com.zzzpro.zzz.dao;
+package com.zzzpro.zzz.sol.dao;
 
 import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.zzzpro.zzz.dto.BoardDto;
+import com.zzzpro.zzz.sol.dto.BoardDto;
 
 @Mapper
 public interface BoardDao {
