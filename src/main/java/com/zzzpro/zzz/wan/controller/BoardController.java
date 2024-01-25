@@ -1,4 +1,4 @@
-package com.zzzpro.zzz.sol.controller;
+package com.zzzpro.zzz.wan.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -48,7 +48,6 @@ public class BoardController {
 	
 	@GetMapping("/board/boardUpdate")
 	public String boardUpdate(BoardDto bDto) {
-		log.info(" ========== > controller - boardUpdate < =========={}",bDto);
 		return "boardUpdate";
 	}
 }
