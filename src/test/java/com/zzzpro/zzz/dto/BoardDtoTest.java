@@ -3,7 +3,9 @@ package com.zzzpro.zzz.dto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import com.zzzpro.zzz.dao.BoardDao;
+
+import com.zzzpro.zzz.sol.dao.BoardDao;
+import com.zzzpro.zzz.sol.dto.BoardDto;
 
 @SpringBootTest
 class BoardDtoTest {

@@ -1,4 +1,4 @@
-package com.zzzpro.zzz.dto;
+package com.zzzpro.zzz.sol.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,4 +1,4 @@
-package com.zzzpro.zzz.service;
+package com.zzzpro.zzz.sol.service;
 
 import java.util.ArrayList;
 
@@ -7,9 +7,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.zzzpro.zzz.dao.BoardDao;
-import com.zzzpro.zzz.dao.MemberDao;
-import com.zzzpro.zzz.dto.BoardDto;
+import com.zzzpro.zzz.sol.dao.BoardDao;
+import com.zzzpro.zzz.sol.dao.MemberDao;
+import com.zzzpro.zzz.sol.dto.BoardDto;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Service

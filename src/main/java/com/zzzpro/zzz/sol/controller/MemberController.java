@@ -1,4 +1,4 @@
-package com.zzzpro.zzz.controller;
+package com.zzzpro.zzz.sol.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.zzzpro.zzz.dto.MemberDto;
-import com.zzzpro.zzz.service.MemberService;
+import com.zzzpro.zzz.sol.dto.MemberDto;
+import com.zzzpro.zzz.sol.service.MemberService;
 
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
