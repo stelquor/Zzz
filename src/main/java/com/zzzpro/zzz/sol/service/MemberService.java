@@ -1,11 +1,11 @@
-package com.zzzpro.zzz.service;
+package com.zzzpro.zzz.sol.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.zzzpro.zzz.dao.MemberDao;
-import com.zzzpro.zzz.dto.MemberDto;
+import com.zzzpro.zzz.sol.dao.MemberDao;
+import com.zzzpro.zzz.sol.dto.MemberDto;
 
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;

@@ -1,8 +1,8 @@
-package com.zzzpro.zzz.dao;
+package com.zzzpro.zzz.sol.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.zzzpro.zzz.dto.MemberDto;
+import com.zzzpro.zzz.sol.dto.MemberDto;
 
 @Mapper
 public interface MemberDao {
