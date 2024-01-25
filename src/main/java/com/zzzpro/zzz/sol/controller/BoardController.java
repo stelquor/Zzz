@@ -48,6 +48,7 @@ public class BoardController {
 	
 	@GetMapping("/board/boardUpdate")
 	public String boardUpdate(BoardDto bDto) {
+		log.info(" ========== > controller - boardUpdate < =========={}",bDto);
 		return "boardUpdate";
 	}
 }
