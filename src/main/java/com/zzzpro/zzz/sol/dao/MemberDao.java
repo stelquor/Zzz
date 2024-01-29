@@ -15,7 +15,7 @@ public interface MemberDao {
 
 	public boolean join(MemberDto mDto);
 
-	public String login(MemberDto mDto);
+	public MemberDto login(MemberDto mDto);
 
 	
 }

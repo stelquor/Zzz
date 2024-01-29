@@ -25,9 +25,29 @@ function anonymousChange(){
 
 
 function writeCheck() {		// 게시글 올리기 전 체크
+	let anony = document.getElementById('anonymousBTN')
 	let title = $('#b_title').val()
 	var contents = $('#summernote').summernote('code')
-
+	
+/*	if(anony.className=='btn btn-primary'){
+		let nick = $('#b_writerNick').val()
+		let unNickCheck={b_writerNick:nick}
+	 	$.ajax({
+			method:'get',
+			url: '/board/unNickCheck',
+			data: unNickCheck,
+		}).done(function(res){
+			console.log("res: ",res);
+			if (res!="ok"){
+				$('#').html('회원가입된 닉네임은 사용할 수 없습니다.')
+				return false
+			}
+		}).fail((err,status)=>{
+			console.log("err:", err);
+			console.log("status:", status);
+			return false
+		})
+	}*/
 	if (title == '') {
 		Swal.fire({
 			icon : "error",

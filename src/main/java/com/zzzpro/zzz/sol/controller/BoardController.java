@@ -19,14 +19,12 @@ public class BoardController {
 	
 	@GetMapping("/board/list")
 	public String boardList(int page, Model model) {
-		log.info(" ========== > controller - boardList < ==========");
 		bSer.boardList(page, model);
 		return "boardList";
 	}
 	
 	@GetMapping("/board/detail")
 	public String boardDetail(BoardDto bDto, Model model) {
-		log.info(" ========== > controller - boardDetail < ==========");
 		if(bSer.boardDetail(bDto, model)) {
 			return "boardDetail";
 		}
@@ -35,20 +33,17 @@ public class BoardController {
 	
 	@GetMapping("/board/boardWrite")
 	public String boardWrite(Model model) {
-		log.info(" ========== > controller - bWrite < ==========");
 		return "boardWrite";
 	}
 	
 	@GetMapping("/board/writeSub")
 	public String writeSub(BoardDto bDto, RedirectAttributes ra) {	
-		log.info(" ========== > controller - writeSub < =========={}",bDto);
 		bSer.writeSub(bDto, ra);
 		return "redirect:/board/list?page=1";
 	}
 	
 	@GetMapping("/board/boardUpdate")
 	public String boardUpdate(BoardDto bDto) {
-		log.info(" ========== > controller - boardUpdate < =========={}",bDto);
 		return "boardUpdate";
 	}
 }

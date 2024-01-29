@@ -21,8 +21,19 @@
 		
 		<h3>Board List</h3>
 		
-		<p>할 것: 익명일 시 익명 닉네임으로 뜨게 하고, 익명임을 명시할 것
-			익명 닉네임 입력 시 회원닉네임에 잇는지 중복체크 후 중복이면 글 못올리게</p>
+		<div th:if="${session.member != null}">
+			<p th:text="${session.member.m_nick}"></p>
+			<button onclick="location.href='/member/logout'">로그아웃</button>
+		</div>
+		<div th:if="${session.member == null}">
+			<button onclick="location.href='/member/loginfrm'">로그인</button>
+			<button onclick="location.href='/member/joinfrm'">회원가입</button>
+		</div>
+		
+		<br><hr><br>
+		
+		<p>할 것: 익명 닉네임 입력 시 회원닉네임에 잇는지 중복체크 후 중복이면 글 못올리게
+			익명 수정/삭제 + 일반 수정/삭제 + 댓글</p>
 		
 		<button type="button" class="crudBtn" onclick="location.href='/board/boardWrite'" style="float: left;">글 작성</button>
 		<br><br>

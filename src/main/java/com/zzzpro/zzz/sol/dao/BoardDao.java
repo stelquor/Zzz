@@ -17,6 +17,6 @@ public interface BoardDao {
 
 	public boolean writeSub(BoardDto bDto);
 
-	public String getNick(String b_writer);
+	public boolean unPwCheck(BoardDto bDto);
 	
 }
