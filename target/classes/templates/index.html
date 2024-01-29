@@ -22,11 +22,11 @@
 		
 		<h3>Main Page</h3>
 		
-		<div th:if="${session.loginId != null}">
-			<p th:text="${session.loginId}"></p>
+		<div th:if="${session.member != null}">
+			<p th:text="${session.member.m_nick}"></p>
 			<button onclick="location.href='/member/logout'">로그아웃</button>
 		</div>
-		<div th:if="${session.loginId == null}">
+		<div th:if="${session.member == null}">
 			<button onclick="location.href='/member/loginfrm'">로그인</button>
 			<button onclick="location.href='/member/joinfrm'">회원가입</button>
 		</div>
