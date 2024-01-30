@@ -18,5 +18,7 @@ public interface BoardDao {
 	public boolean writeSub(BoardDto bDto);
 
 	public boolean unPwCheck(BoardDto bDto);
+
+	public boolean unNickCheck(BoardDto bDto);
 	
 }

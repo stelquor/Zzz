@@ -14,6 +14,11 @@ public class RestBoardController {
 	@Autowired
 	private BoardService bSer;
 	
+	@GetMapping("/board/unNickCheck")
+	public String unNickCheck(BoardDto bDto) {
+		return bSer.unNickCheck(bDto);
+	}
+	
 	@GetMapping("/board/unPwCheck")
 	public String unPwCheck(BoardDto bDto) {
 		return bSer.unPwCheck(bDto);

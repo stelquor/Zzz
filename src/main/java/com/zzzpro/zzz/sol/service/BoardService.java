@@ -62,5 +62,13 @@ public class BoardService {
 		}
 		return "no";
 	}
+
+	public String unNickCheck(BoardDto bDto) {
+		log.info(" ========== > service - unNickCheck: {}"+bDto.getB_writerNick()+" < ==========");
+		if(!bDao.unNickCheck(bDto)) {
+			return "ok";
+		}
+		return "no";
+	}
 	
 }
