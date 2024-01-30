@@ -21,7 +21,7 @@ public class BoardService {
 	private BoardDao bDao;
 	
 	public boolean boardList(int page, Model model) {
-		log.info(" ========== > service - boardList: "+page+" < ==========");
+		log.info(" ========== > service - boardList: {}"+page+" < ==========");
 		int limit = (page-1)*10;
 		ArrayList<BoardDto> bList = bDao.boardList(limit);
 		if(bList.size()!=0) {
@@ -32,13 +32,10 @@ public class BoardService {
 	}
 
 	public boolean boardDetail(BoardDto bDto, Model model) {
-		log.info(" ========== > service - boardList: "+bDto.getB_num()+" < ==========");
+		log.info(" ========== > service - boardList: {}"+bDto.getB_num()+" < ==========");
 		bDto = bDao.boardDetail(bDto.getB_num());
 		System.out.println(bDto);
 		if(bDto.getB_date()!="") {
-			if(bDto.getUnnamed()==1) {
-				bDto.setB_writer(bDto.getB_writerNick());
-			}
 			model.addAttribute("bDto", bDto);
 			return true;
 		}
@@ -46,14 +43,9 @@ public class BoardService {
 	}
 
 	public boolean writeSub(BoardDto bDto, RedirectAttributes ra) {
-		log.info(" ========== > service - writeSub: "+bDto.getB_writer()+" < ==========");
+		log.info(" ========== > service - writeSub: {}"+bDto.getB_writer()+" < ==========");
 		System.out.println(bDto);
-		if(bDto.getB_writerNick()=="") {
-			System.out.println(bDto.getB_writer());
-			bDto.setB_writerNick(bDao.getNick(bDto.getB_writer()));
-			
-			System.out.println(bDto);
-		}else {
+		if(bDto.getB_writerNick()!="") {
 			bDto.setUnnamed(1);
 		}
 		if(bDao.writeSub(bDto)) {
@@ -61,6 +53,14 @@ public class BoardService {
 			return true;
 		}
 		return false;
+	}
+
+	public String unPwCheck(BoardDto bDto) {
+		log.info(" ========== > service - unPwCheck: {}"+bDto.getB_num()+" < ==========");
+		if(bDao.unPwCheck(bDto)) {
+			return "ok";
+		}
+		return "no";
 	}
 	
 }

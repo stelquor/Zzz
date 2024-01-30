@@ -19,7 +19,7 @@ public class MemberService {
 	//private BCryptPasswordEncoder enPw;
 
 	public String idCheck(String m_id) {
-		log.info(" ========== > service - idCheck: ",m_id," < ==========");
+		log.info(" ========== > service - idCheck: {}",m_id," < ==========");
 		boolean result = mDao.idCheck(m_id);
 		System.out.println("==== mSer -> result: "+result);
 		if(!result) {
@@ -29,7 +29,7 @@ public class MemberService {
 	}
 
 	public String nickCheck(String m_nick) {
-		log.info(" ========== > service - nickCheck: ",m_nick," < ==========");
+		log.info(" ========== > service - nickCheck: {}",m_nick," < ==========");
 		boolean result = mDao.nickCheck(m_nick);
 		System.out.println("==== mSer -> result: "+result);
 		if(!result) {
@@ -39,7 +39,7 @@ public class MemberService {
 	}
 	
 	public String emailCheck(String m_email) {
-		log.info(" ========== > service - emailCheck: ",m_email," < ==========");
+		log.info(" ========== > service - emailCheck: {}",m_email," < ==========");
 		boolean result = mDao.emailCheck(m_email);
 		System.out.println("==== mSer -> result: "+result);
 		if(!result) {
@@ -49,7 +49,7 @@ public class MemberService {
 	}
 
 	public boolean join(MemberDto mDto, RedirectAttributes ra) {
-		log.info(" ========== > service - join: ",mDto.getM_id()," < ==========");
+		log.info(" ========== > service - join: {}",mDto.getM_id()," < ==========");
 		//mDto.setM_pw(enPw.encode(mDto.getM_pw()));
 		if(mDao.join(mDto)) {
 			ra.addFlashAttribute("msg","회원가입 성공!");
@@ -60,11 +60,14 @@ public class MemberService {
 	}
 
 	public boolean login(MemberDto mDto, RedirectAttributes ra, HttpSession session) {
-		log.info(" ========== > service - login: ",mDto.getM_id()," < ==========");
+		log.info(" ========== > service - login: {}",mDto.getM_id()," < ==========");
 		//enPw.matches(mDto.getM_pw(),mDao.login(mDto))
-		if(mDto.getM_pw().equals(mDao.login(mDto))) {
+		MemberDto loginMDto = mDao.login(mDto);
+		
+		if(mDto.getM_pw().equals(loginMDto.getM_pw())) {
 			ra.addFlashAttribute("msg","로그인 성공!");
-			session.setAttribute("loginId",mDto.getM_id());
+			loginMDto.setM_pw(null);
+			session.setAttribute("member",loginMDto);
 			return true;
 		}
 		ra.addFlashAttribute("msg","로그인 실패");
